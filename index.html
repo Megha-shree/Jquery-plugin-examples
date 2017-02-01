@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Plugin</title>
+	<link rel="stylesheet" href="">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			  crossorigin="anonymous"></script>
+	<script>
+		(function($){
+			$.fn.changecolor = function(m){
+				var settings = $.extend({
+					color: "skyblue"
+				}, m);
+				return this.css({
+					color:settings.color
+				});
+			};
+
+		}(jQuery));
+
+		$(document).ready(function(){
+			// alert('hi');
+			$('h1').changecolor();
+			$('button').click(function(){
+				$('h1').changecolor({
+					color: "green"
+				});	
+				$('p').changecolor();
+				$('.para2').hide(800);	
+			});
+		});
+	</script>
+	<style>
+	body{
+		font-family: 'Open sans',sans-serif;
+	}
+	h1{
+		font-size: 50px;
+	}
+	.container{
+		text-align: center;
+		width: 600px;
+		margin: 0 auto;
+		border: 1px solid pink;
+		border-radius: 3px;
+		padding: 0 20px 20px;
+	}
+		button{
+			background-color: red;
+			color: #fff;
+			border: 1px solid red;
+			padding: 8px 20px;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Hello World!</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et perferendis praesentium illo quas quo rem nesciunt, sed corporis nobis earum consectetur delectus vero sequi quam cum molestias beatae similique error!</p>
+		<p class="para2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et perferendis praesentium illo quas quo rem nesciunt, sed corporis nobis earum consectetur delectus vero sequi quam cum molestias beatae similique error!</p>
+		<button>Click</button>
+	</div><!-- end of container -->
+</body>
+</html>
